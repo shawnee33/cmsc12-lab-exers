@@ -1,0 +1,122 @@
+/*
+Name: Shawn Alfred Padilla
+Section: G-6L
+Description: CSS styling for Pizza Order Form with logo and emojis
+Source: W3Schools CSS Reference
+*/
+
+body {
+    background-color: #fff7e6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffcc66;
+    border-bottom: 3px solid #cc6600;
+}
+
+.pizza {
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+.header1 {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    margin-right: 100px;
+    color: #b22222;
+    text-align: center;
+    justify-content: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    gap: 10px
+}
+
+form {
+    width: 70%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+legend {
+    font-weight: bold;
+    color: #b22222;
+    background-color: #fff7e6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    border: 2px solid #3b3b3b;
+    border-radius: 8px;
+}   
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-bottom: 8px;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+select{
+    width: 97.5%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-bottom: 8px;
+}
+button {
+    background-color: #b22222;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+button[type="reset"] {
+    background-color: gray;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+}

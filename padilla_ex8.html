@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="padilla_ex9.css">
+	<script src="scripts.js"></script>
+	<link rel="icon" type="image/png" href="pizza.png">
+	<title>Pizza Order Form</title>
+</head>
+<body>
+	<div class="header1">
+		<img src="pizza.png" class="pizza">
+		<h1>Pizza Order Form</h1>
+	</div>
+	
+	<form>
+
+		<div>
+			<fieldset>
+				<legend> 👤 Customer Details </legend>
+				Customer Name: <input Id="name" type="text" name="name" required>
+				<br>
+				Mobile Number: <input Id="number" type="text" name="number" required>
+				<br>
+				E-mail Address: <input Id="email-add" type="email" name="email" required>
+				<br>
+			</fieldset>
+		</div>
+
+		<div>
+			<fieldset>
+				<legend> 🍕 Pizza Options </legend>
+				<br>
+				Flavor: 
+				<select name="flavor">
+					<option id="flavor1" value="50">Hawaiian</option>
+					<option id="flavor2" value="120">Margherita</option>
+					<option id="flavor3" value="150">5 Cheese</option>
+					<option id="flavor4" value="50">Vegetarian</option>
+					<option id="flavor5" value="220">New York Style</option>
+				</select>
+				<br>
+				<br>
+				Size: <br>
+				<input type="radio" id="size1" name="size" value="100" checked="checked">Small
+				<br>
+				<input type="radio" id="size2" name="size" value="200" checked="checked">Medium
+				<br>
+				<input type="radio" id="size3" name="size" value="300" checked="checked">Large
+				<br>
+				<input type="radio" id="size4" name="size" value="400" checked="checked">Extra Large
+				<br>
+				<br>
+				Extra Toppings:<br>
+				<input type="checkbox" name="toppings" value="45">Bacon <br>
+				<input type="checkbox" name="toppings" value="40">Cheese <br>
+				<input type="checkbox" name="toppings" value="25">Olives <br>
+				<input type="checkbox" name="toppings" value="25">Mushrooms <br>
+				<input type="checkbox" name="toppings" value="45">Sausage <br>
+			</fieldset>
+		</div>
+
+		<div>
+			<fieldset>
+				<legend> 🚚 Delivery Details </legend><br>
+				Delivery Date: <input type="date" name="delivery-date" required><br>
+				<br>
+				Delivery Time: <input type="time" name="delivery-time" required><br>
+				<br>
+				Delivery Address: <br><textarea required></textarea>
+				<br>
+			</fieldset>
+		</div>
+		<br>
+		<button type="submit">
+			Submit
+		</button>
+		<button type="reset">
+			Reset
+		</button>
+	</form>
+</body>
+</html>
