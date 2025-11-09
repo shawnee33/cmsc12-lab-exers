@@ -5,25 +5,30 @@
    ============================================================ */
 
 window.onload = function() {
-    const form = document.querySelector("form");
-    const nameInput = document.getElementById("name");
-    const numberInput = document.getElementById("number");
-    const emailInput = document.getElementById("email-add");
-    const flavorSelect = document.querySelector("select[name='flavor']");
-    const sizeRadios = document.querySelectorAll("input[name='size']");
-    const toppingsCheckboxes = document.querySelectorAll("input[name='toppings']");
-    const deliveryDateInput = document.querySelector("input[name='delivery-date']");
-    const deliveryTimeInput = document.querySelector("input[name='delivery-time']");
-    const addressTextarea = document.querySelector("textarea");
-
+    // Define variables
+    var form = document.querySelector("form");
+    var nameInput = document.getElementById("name");
+    var numberInput = document.getElementById("number");
+    var emailInput = document.getElementById("email-add");
+    var flavorSelect = document.querySelector("select[name='flavor']");
+    var sizeRadios = document.querySelectorAll("input[name='size']");
+    var toppingsCheckboxes = document.querySelectorAll("input[name='toppings']")    ;
+    var deliveryDateInput = document.querySelector("input[name='delivery-date']");
+    var deliveryTimeInput = document.querySelector("input[name='delivery-time']");
+    var addressTextarea = document.querySelector("textarea");
+    
+    // Check Validation and Prevent Reset
     form.addEventListener("submit", function(e) {
         e.preventDefault(); 
         if (!validateInputs()) return;
-        const total = computeTotal();
-        displaySummary(total);
+        //Display total
+            const total = computeTotal();
+            displaySummary(total);
     });
 
+    
     function validateInputs() {
+        // Check if the i
         const number = numberInput.value.trim();
         const validNumber = /^\d{11}$/;
         if (!validNumber.test(number)) {
@@ -32,11 +37,13 @@ window.onload = function() {
         }
 
         const today = new Date();
+        today.setHours(0,0,0,0);
         const deliveryDate = new Date(deliveryDateInput.value);
-        if (isNaN(deliveryDate.getTime())) {
-            alert("Please enter a valid delivery date.");
-            return false;
+        if (deliveryDate <= today) {
+            alert("Delivery date must be in the future.");
+            return false;   
         }
+
         if (deliveryDate <= today) {
             alert("Delivery date must be in the future.");
             return false;
@@ -72,16 +79,16 @@ window.onload = function() {
     function computeTotal() {
         let total = 0;
 
-        // A. Get flavor price directly from <select> value
+        // Get flavor price directly from <select> value
         const flavorPrice = parseInt(flavorSelect.value);
         const flavorName = flavorSelect.options[flavorSelect.selectedIndex].text;
 
-        // B. Get selected size price from checked radio button
+        // Get selected size price from checked radio button
         const selectedSize = document.querySelector("input[name='size']:checked");
         const sizePrice = parseInt(selectedSize.value);
         const sizeName = selectedSize.nextSibling.textContent.trim(); // get label text
 
-        // C. Sum up all checked toppings
+        // Sum up all checked toppings
         let toppingsPrice = 0;
         let toppingsList = [];
         toppingsCheckboxes.forEach(topping => {
@@ -91,10 +98,10 @@ window.onload = function() {
             }
         });
 
-        // D. Compute total
+        // Compute total
         total = flavorPrice + sizePrice + toppingsPrice;
 
-        // E. Store data for summary
+        // Store data for summary
         form.dataset.flavor = flavorName;
         form.dataset.size = sizeName;
         form.dataset.toppings = toppingsList.join(", ") || "No extra toppings";
