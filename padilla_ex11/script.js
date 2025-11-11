@@ -66,7 +66,7 @@ window.onload = function() {
             return false;
         }
 
-        // E. Validate required text fields (name, address)
+        // Validate required text fields (name, address)
         if (nameInput.value.trim() === "" || addressTextarea.value.trim() === "") {
             alert("Please fill out all required fields (name and address).");
             return false;
