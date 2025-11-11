@@ -28,14 +28,14 @@ window.onload = function() {
 
     
     function validateInputs() {
-        // Check if the i
+        // Check if the inputs are valid
         const number = numberInput.value.trim();
         const validNumber = /^\d{11}$/;
         if (!validNumber.test(number)) {
             alert("Please enter a valid 11-digit mobile number.");
             return false;
         }
-
+       // Check if the date is in the future
         const today = new Date();
         today.setHours(0,0,0,0);
         const deliveryDate = new Date(deliveryDateInput.value);
@@ -43,12 +43,12 @@ window.onload = function() {
             alert("Delivery date must be in the future.");
             return false;   
         }
-
+     
         if (deliveryDate <= today) {
             alert("Delivery date must be in the future.");
             return false;
         }
-
+       // Check if the time of deliveru is within the specified valid time of delivery
         const timeValue = deliveryTimeInput.value;
         if (!timeValue) {
             alert("Please enter a delivery time.");
@@ -59,13 +59,13 @@ window.onload = function() {
             alert("Delivery time must be between 8:00 AM and 10:00 PM.");
             return false;
         }
-
+      // check the selected size and its value
         const selectedSize = document.querySelector("input[name='size']:checked");
         if (!selectedSize) {
             alert("Please select a pizza size.");
             return false;
         }
-
+   
         // Validate required text fields (name, address)
         if (nameInput.value.trim() === "" || addressTextarea.value.trim() === "") {
             alert("Please fill out all required fields (name and address).");
@@ -109,7 +109,7 @@ window.onload = function() {
         return total;
     }
 
-
+   // Setup the display necessarry to be shown in alert box
     function displaySummary(total) {
         const name = nameInput.value;
         const email = emailInput.value;
